@@ -1,22 +1,27 @@
-// TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const generateReadMe = require ('./src/readme-template');
-const { writeFile, copyFile } = require ('./utils/generate-readme')
+const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
-// TODO: Create an array of questions for user input
 const questions = [ 'What is the title of your project?', 'Please give a description of your project', 'What are the steps to install you project?', 'Provide instructions for use', 'Please list any contributors', 'Please list any parameters for testing', 'Please choose a color for your license badge', 'Please enter the name for your license', 'What is your Github username?', 'What is your e-mail address?' ];
 
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err =>{
+        if (err) {
+            throw err;
+        }
+        else {
+            console.log('ReadMe file generated!')
+        }
+    });
+}
 
-/*
-// TODO: Create a function to initialize app
-function init() {}
-
-// Function call to initialize app
-init();
-*/
+function init() {
+    promptUser().then(data => {
+        const response = generateMarkdown(data);
+        writeToFile('./dist/readme.md', response)
+    })
+}
 
 const promptUser = () => {
     return inquirer.prompt([
@@ -61,7 +66,7 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'instrucions',
+            name: 'instructions',
             message: questions[3],
             validate: instructionsInput => {
                 if (instructionsInput) {
@@ -143,7 +148,8 @@ const promptUser = () => {
                 } 
             }  
         } 
-    ]) 
-}; 
+    ])
+}
 
-promptUser()
+init() 
+
