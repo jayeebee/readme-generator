@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
-const questions = [ 'What is the title of your project?', 'Please give a description of your project', 'What are the steps to install you project?', 'Provide instructions for use', 'Please list any contributors', 'Please list any parameters for testing', 'Please choose a color for your license badge', 'Please enter the name for your license', 'What is your Github username?', 'What is your e-mail address?' ];
+const questions = [ 'What is the title of your project?', 'Please give a description of your project', 'What are the steps to install you project?', 'Provide instructions for use', 'Please list any contributors', 'Please list any parameters for testing', 'Please choose a color for your license badge', 'Please enter the name for your license', 'Enter your license text here', 'What is your Github username?', 'What is your e-mail address?' ];
 
 
 function writeToFile(fileName, data) {
@@ -124,8 +124,21 @@ const promptUser = () => {
         },
         {
             type: 'input',
-            name: 'github',
+            name: 'licenseInfo',
             message: questions[8],
+            validate: licenseNameInput => {
+                if (licenseNameInput) {
+                    return true;
+                } else {
+                console.log('Please enter your license text');
+                return false;
+                }
+            } 
+        },
+        {
+            type: 'input',
+            name: 'github',
+            message: questions[9],
             validate: githubInput => {
                 if (githubInput) {
                     return true;
@@ -138,7 +151,7 @@ const promptUser = () => {
         {
             type: 'input',
             name: 'email',
-            message: questions[9],
+            message: questions[10],
             validate: emailInput => {
                 if (emailInput) { 
                     return true;

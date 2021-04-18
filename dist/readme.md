@@ -1,5 +1,6 @@
 
-  # g
+  # ReadMe Generator!
+  ![](https://img.shields.io/badge/license-JASON-orange)
 
   ## **Table of Contents**
   
@@ -10,23 +11,24 @@
   4. [Contributors](#contributors)
   5. [Testing Parameters](#testing-parameters)
   6. [Licensing](#licensing)
-  - [Github Username](#github-username)
-  - [Email Address](#email-address)
+  - [Questions](#github)
+ 
   
   
   ## Description
-  g
+  Generates a professional ReadMe file through node.
   ## Installation Steps
-  g
+  Install npm and inquirer.
   ## Instructions
-  g
+  After installation, simply use 'node index.js'
   ## Contributors
-  g
+  Jason Bailey
   ## Testing Parameters
-  g
+  Trial and error.
   ## Licensing
-  ![](https://img.shields.io/badge/license-g-brightgreen)
+  Lorem Ipsum Licenseum
   
-  ### [Github Username](https://github.com/g)
+  ## Any Questions? Contact me!
+  ### [Github](https://github.com/Jayeebee)
   
-  ### [Email Address](<mailto:g>)
+  ### [Email Me](<mailto:jayeebee918@gmail.com>)
